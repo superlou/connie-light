@@ -1,0 +1,7 @@
+<ul>
+{{#each model as |event|}}
+  <li>{{link-to event.name 'event' event}}</li>
+{{/each}}
+</ul>
+
+<button {{action "newEvent"}}>New Event</button>
