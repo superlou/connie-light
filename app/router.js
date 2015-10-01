@@ -6,7 +6,11 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('event', {path: '/event/:event_id'});
+  this.route('event', {path: '/event/:event_id'}, function() {
+    this.route('schedule', function() {
+      this.route('show', {path: '/:schedule_id'});
+    });
+  });
 });
 
 export default Router;

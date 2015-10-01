@@ -1,0 +1,11 @@
+<div id='schedule'>
+  {{outlet}}
+</div>
+
+<div id='schedule-tabs'>
+  <ul>
+  {{#each model as |schedule|}}
+    {{link-to schedule.name "event.schedule.show" schedule.event schedule}}
+  {{/each}}
+  </ul>
+</div>

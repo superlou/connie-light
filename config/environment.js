@@ -4,7 +4,10 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'connie-light',
     environment: environment,
-    contentSecurityPolicy: { 'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com" },
+    contentSecurityPolicy: {
+      'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com",
+      'style-src': "'self' 'unsafe-inline'"
+    },
     firebase: 'https://sweltering-inferno-4868.firebaseio.com/',
     baseURL: '/',
     locationType: 'auto',

@@ -1,0 +1,21 @@
+<div class="reservables">
+  <div class='header'></div>
+  {{#each places as |place|}}
+    <div class='reservable'>{{place.name}}</div>
+  {{/each}}
+</div>
+
+
+<div class="track-container">
+  <div class="tracks" style={{tracksWidthStyle}}>
+    <div class='header'>
+      {{#each hours as |hour|}}
+        <div class='hour' style={{hourWidthStyle}}>{{structure-hour hour}}</div>
+      {{/each}}
+    </div>
+    {{#each places as |place|}}
+      {{schedule-track reservable=place hours=hours hourWidth=hourWidth start=start
+        moveReservation='moveReservation' selectEvent='selectEvent'}}
+    {{/each}}
+  </div>
+</div>

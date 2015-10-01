@@ -1,0 +1,14 @@
+{{#each hours as |hour|}}
+  {{grid-block hourWidth=hourWidth type='major' hour=hour
+    selectEvent='selectEvent'
+    }}
+  {{grid-block hourWidth=hourWidth type='minor' hour=hour offset=30
+    selectEvent='selectEvent'
+    }}
+{{/each}}
+
+
+{{#each reservable.reservations as |reservation|}}
+  {{reservation-block reservation=reservation hourWidth=hourWidth
+    trackStart=start}}
+{{/each}}

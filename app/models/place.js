@@ -2,5 +2,6 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
   name: DS.attr('string'),
-  schedules: DS.hasMany('event')
+  schedule: DS.belongsTo('schedule'),
+  sessions: DS.hasMany('session')
 });
