@@ -55,3 +55,30 @@ body
   width: 100%
   background: #ececec
   border-top: 1px solid #aaa
+
+  ul
+    position: absolute
+    top: -1px
+    padding: 0px 120px
+    margin: 0px
+
+    li
+      display: block
+      float: left
+      list-style-type: none
+      background: #ececec
+      font-size: 13px
+
+      a, a:visited
+        display: inline-block
+        color: black
+        text-decoration: none
+        padding: 7px 10px
+        border: 1px solid #d0d0d0
+        border-top: 1px solid #aaa
+
+      a.active, a.active:visited
+        background: white
+        border: 1px solid #aaa
+        border-top: 1px solid white
+        border-bottom: 2px solid #bbb

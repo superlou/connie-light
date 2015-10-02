@@ -5,7 +5,9 @@
 <div id='schedule-tabs'>
   <ul>
   {{#each model as |schedule|}}
-    {{link-to schedule.name "event.schedule.show" schedule.event schedule}}
+    <li>
+      {{link-to schedule.name "event.schedule.show" schedule.event schedule}}
+    </li>
   {{/each}}
   </ul>
 </div>
