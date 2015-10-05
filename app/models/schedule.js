@@ -6,5 +6,5 @@ export default DS.Model.extend({
   finish: DS.attr('date'),
   event: DS.belongsTo('event'),
   places: DS.hasMany('place', {async: true}),
-  sessions: DS.hasMany('sessions')
+  sessions: DS.hasMany('session')
 });
