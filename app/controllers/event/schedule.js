@@ -10,6 +10,9 @@ export default Ember.Controller.extend({
   newScheduleStart: "9:00:00",
   newScheduleFinish: "17:00:00",
 
+  newPlace: false,
+  newPlaceName: "New Place",
+
   actions: {
     newSchedule: function() {
       this.set('newSchedule', true);
@@ -33,6 +36,23 @@ export default Ember.Controller.extend({
       });
 
       this.set('newSchedule', false);
+    },
+
+    newPlace: function() {
+      this.set('newPlace', true);
+    },
+
+    removeNewPlace: function() {
+      this.set('newPlace', false);
+    },
+
+    createNewPlace: function() {
+      this.send('createPlace', {
+        name: this.get('newPlaceName'),
+        event: this.get('event')
+      });
+
+      this.set('newPlace', false);
     }
   }
 });

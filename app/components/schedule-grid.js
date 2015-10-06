@@ -35,6 +35,10 @@ export default Ember.Component.extend({
 
     selectEvent: function(startTime, reservable) {
       this.sendAction('selectEvent', startTime, reservable);
+    },
+
+    newPlace: function() {
+      this.sendAction('newPlace');
     }
   }
 });

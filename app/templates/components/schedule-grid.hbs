@@ -3,6 +3,10 @@
   {{#each places as |place|}}
     <div class='reservable'>{{place.name}}</div>
   {{/each}}
+
+  <div class='reservable'>
+    <a href='#' {{action 'newPlace'}}>{{fa-icon "plus"}} New</a>
+  </div>
 </div>
 
 

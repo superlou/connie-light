@@ -17,6 +17,29 @@ export default Ember.Route.extend({
       });
 
       schedule.save();
+      event.get('schedules').addObject(schedule).save();
+    },
+
+    newPlace: function() {
+      this.controllerFor('event.schedule').set('newPlace', true);
+    },
+
+    createPlace: function(data) {
+      var event = data.event;
+
+      var place = this.store.createRecord('place', {
+        name: data.name,
+        event: data.event
+      });
+
+      event.get('places').addObject(place);
+      event.get('schedules').forEach(function(schedule) {
+        schedule.get('places').addObject(place);
+        schedule.save();
+      });
+
+      place.save();
+      event.save();
     }
-  }
+  },
 });
