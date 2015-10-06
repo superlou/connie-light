@@ -10,7 +10,22 @@
     </li>
   {{/each}}
   <li>
-    <a href="#" class="subtle">{{fa-icon "plus"}}</a>
+    <a href="#" class="subtle" {{action "newSchedule"}}>{{fa-icon "plus"}}</a>
   </li>
   </ul>
 </div>
+
+{{#if newSchedule}}
+  {{#modal-dialog close="removeNewSchedule" targetAttachment="center" translucentOverlay=true}}
+    <h1>Create new schedule</h1>
+    <div class="name">Name</div>
+    <div class="input">{{input value=newScheduleName}}</div>
+    <div class="name">Date</div>
+    <div class="input">{{pikaday-input value=newScheduleDate}}</div>
+    <div class="name">Start</div>
+    <div class="input">{{input name=newScheduleStart value=newScheduleStart}}</div>
+    <div class="name">Finish</div>
+    <div class="input">{{input name=newScheduleFinish value=newScheduleFinish}}</div>
+    <button {{action "createNewSchedule"}}>Save</button>
+  {{/modal-dialog}}
+{{/if}}
