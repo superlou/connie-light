@@ -45,14 +45,14 @@ $grid-color: #DADADA
           box-sizing: border-box
           height: 50px
           overflow: hidden
-          background: darken($background, 10)
-          border-left: 2px solid darken($background, 30)
-          padding: 1em
-          font-size: 0.8em
+          background: #ECF3FF
+          border: 1px solid #4285F4
+          padding: 8px
+          font-size: 12px
           cursor: pointer
 
-          &:hover
-            background: darken($background, 20)
+          // &:hover
+          //   background: darken($background, 20)
 
           &.is-dirty
             border-left: 2px solid darken($background, 80)
@@ -63,10 +63,10 @@ $grid-color: #DADADA
 
         &:nth-child(odd)
           .reservation-block
-            background: darken($background, 5)
+            background: #ECF3FF
 
-            &:hover
-              background: darken($background, 20)
+            // &:hover
+            //   background: darken($background, 20)
 
             &.is-dirty
               border-left: 2px solid darken($background, 80)
