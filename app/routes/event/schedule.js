@@ -62,6 +62,22 @@ export default Ember.Route.extend({
         place.save();
         event.save();
       });
+    },
+
+    moveReservation: function(session, newPlace, times) {
+      var oldPlace = session.get('place');
+      oldPlace.get('sessions').removeObject(session);
+
+      session.set('place', newPlace);
+      session.set('start', times[0]);
+      session.set('finish', times[1]);
+
+      newPlace.get('sessions').addObject(session);
+
+      session.save().then(function() {
+        oldPlace.save();
+        newPlace.save();
+      });
     }
   },
 });

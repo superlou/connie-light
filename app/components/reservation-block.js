@@ -28,14 +28,21 @@ export default Ember.Component.extend({
   }.property('reservation.start', 'trackStart', 'hourWidth'),
 
   setupUi: function() {
-    // this.$().draggable({
-    //   stack: '.tracks',
-    //   grid: [this.get('hourWidth')/12.0, 50]
-    // });
-    //
+    var _this = this;
+
+    this.$().draggable({
+      stack: '.tracks',
+      grid: [this.get('hourWidth')/12.0, 50]
+    });
+
     // this.$().resizable({
-    //   grid: [this.get('hourWidth')/12.0, 1],
-    //   handles: 'e, w'
+    //   // grid: [this.get('hourWidth')/12.0, 1], todo: fix error with grid being
+    //   // absolute to page, not scroll
+    //   handles: 'e, w',
+    //   containment: 'parent',
+    //   stop: function(event, ui) {
+    //     _this.sendAction('resizeReservation');
+    //   }
     // });
   }.on('didInsertElement', 'hourWidth')
 });
