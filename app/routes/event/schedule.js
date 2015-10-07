@@ -2,7 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model: function(param) {
-    return this.store.find('schedule');
+    var event = this.modelFor('event');
+    return event.get('schedules');
   },
 
   actions: {
