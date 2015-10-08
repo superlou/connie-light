@@ -32,7 +32,7 @@ export default Ember.Component.extend({
 
     this.$().draggable({
       stack: '.tracks',
-      grid: [this.get('hourWidth')/12.0, 50]
+      grid: [this.get('hourWidth')/12.0, 51]
     });
 
     // this.$().resizable({
