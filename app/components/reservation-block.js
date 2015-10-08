@@ -35,14 +35,16 @@ export default Ember.Component.extend({
       grid: [this.get('hourWidth')/12.0, 51]
     });
 
-    // this.$().resizable({
-    //   // grid: [this.get('hourWidth')/12.0, 1], todo: fix error with grid being
-    //   // absolute to page, not scroll
-    //   handles: 'e, w',
-    //   containment: 'parent',
-    //   stop: function(event, ui) {
-    //     _this.sendAction('resizeReservation');
-    //   }
-    // });
+    this.$().resizable({
+      // grid: [this.get('hourWidth')/12.0, 1], todo: fix error with grid being
+      // absolute to page, not scroll
+      handles: 'e, w',
+      containment: 'parent',
+      stop: function(event, ui) {
+        var width = ui.size.width;
+        var hours = width / _this.get('hourWidth');
+        _this.sendAction('resizeReservation', _this.get('reservation'), hours);
+      }
+    });
   }.on('didInsertElement', 'hourWidth')
 });

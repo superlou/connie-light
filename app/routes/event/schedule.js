@@ -79,6 +79,16 @@ export default Ember.Route.extend({
         oldPlace.save();
         newPlace.save();
       });
+    },
+
+    resizeReservation: function(session, newHours) {
+      console.dir(session);
+      var finish = moment(session.get('start')).add(newHours, 'hours');
+      var roundedMinutes = 5 * Math.round(finish.minute() / 5);
+      finish.minute(roundedMinutes);
+      finish.second(0);
+      session.set('finish', finish.toDate());
+      session.save();
     }
   },
 });

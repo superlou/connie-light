@@ -20,7 +20,8 @@
     {{#each places as |place|}}
       {{schedule-track reservable=place reservations=place.sessions
         hours=hours hourWidth=hourWidth start=start
-        moveReservation='moveReservation' selectEvent='selectEvent'}}
+        moveReservation='moveReservation' selectEvent='selectEvent'
+        resizeReservation='resizeReservation'}}
     {{/each}}
   </div>
 </div>

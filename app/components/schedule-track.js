@@ -33,6 +33,10 @@ export default Ember.Component.extend({
   actions: {
     selectEvent: function(startTime) {
       this.sendAction('selectEvent', startTime, this.get('reservable'));
+    },
+
+    resizeReservation: function(session, hours) {
+      this.sendAction('resizeReservation', session, hours);
     }
   }
 });

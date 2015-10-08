@@ -39,6 +39,10 @@ export default Ember.Component.extend({
 
     newPlace: function() {
       this.sendAction('newPlace');
+    },
+
+    resizeReservation: function(session, hours) {
+      this.sendAction('resizeReservation', session, hours);
     }
   }
 });
