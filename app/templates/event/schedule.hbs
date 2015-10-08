@@ -38,3 +38,14 @@
     <button {{action "createNewPlace"}}>Save</button>
   {{/modal-dialog}}
 {{/if}}
+
+{{#if newSession}}
+  {{#modal-dialog close="removeNewSession" targetAttachment="center" translucentOverlay=true}}
+    <h1>Create new session</h1>
+    <div class="name">Name</div>
+    <div class="input">{{input value=newSessionName}}</div>
+    <div class="name">Duration (minutes)</div>
+    <div class="input">{{input value=newSessionDuration}}</div>
+    <button {{action "createNewSession"}}>Save</button>
+  {{/modal-dialog}}
+{{/if}}

@@ -44,15 +44,23 @@ export default Ember.Route.extend({
     },
 
     newSession: function(start, place) {
+      var eventSchedule = this.controllerFor('event.schedule');
+      eventSchedule.set('newSession', true);
+      eventSchedule.set('newSessionStart', start);
+      eventSchedule.set('newSessionPlace', place);
+    },
+
+    createSession: function(data) {
+      var place = data.place;
       var event = this.controllerFor('event').get('model');
       var schedule = this.controllerFor('event.schedule.show').get('model');
 
       var session = this.store.createRecord('session', {
-        name: 'New Session',
+        name: data.name,
         description: "",
-        place: place,
-        start: start,
-        finish: moment(start).add(30, 'minutes').toDate(),
+        place: data.place,
+        start: data.start,
+        finish: data.finish,
         event: event
       });
 

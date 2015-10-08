@@ -13,6 +13,12 @@ export default Ember.Controller.extend({
   newPlace: false,
   newPlaceName: "New Place",
 
+  newSession: false,
+  newSessionName: "New Session",
+  newSessionPlace: null,
+  newSessionStart: null,
+  newSessionDuration: "30",
+
   actions: {
     newSchedule: function() {
       this.set('newSchedule', true);
@@ -53,6 +59,27 @@ export default Ember.Controller.extend({
       });
 
       this.set('newPlace', false);
+    },
+
+    removeNewSession: function() {
+      this.set('newSession', false);
+      this.set('place', null);
+    },
+
+    createNewSession: function() {
+      var start = this.get('newSessionStart');
+      var duration = this.get('newSessionDuration');
+      var finish = moment(start).add(duration, 'minutes').toDate();
+
+      this.send('createSession', {
+        name: this.get('newSessionName'),
+        start: start,
+        finish: finish,
+        place: this.get('newSessionPlace')
+      });
+
+      this.set('newSession', false);
+      this.set('newSessionPlace', null);
     }
   }
 });
