@@ -48,9 +48,22 @@ body
 #schedule
   position: fixed
   top: 64px
-  // height: 200px
   bottom: 40px
-  width: 100%
+  left: 0px
+  right: 0px
+
+  &.is-editing-details
+    right: 300px
+
+#detail-pane
+  position: fixed
+  width: 300px - 16px
+  right: 0px
+  top: 64px
+  bottom: 40px
+  z-index: 1000
+  border-left: 2px solid #bbb
+  padding: 8px
 
 #schedule-tabs
   position: fixed

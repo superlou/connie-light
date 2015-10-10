@@ -97,6 +97,12 @@ export default Ember.Route.extend({
       finish.second(0);
       session.set('finish', finish.toDate());
       session.save();
+    },
+
+    updateModel: function(type, model) {
+      if (type === "schedule") {
+        model.save();
+      }
     }
   },
 });

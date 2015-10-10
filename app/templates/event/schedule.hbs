@@ -1,11 +1,18 @@
-<div id='schedule'>
+<div id='schedule' class={{if isEditingDetails 'is-editing-details'}}>
   {{outlet}}
 </div>
+{{#if isEditingDetails}}
+  <div id='detail-pane'>
+    {{component detailedModelDetails
+      model=detailedModel
+      saveModel='updateModel'}}
+  </div>
+{{/if}}
 
 <div id='schedule-tabs'>
   <ul>
   {{#each model as |schedule|}}
-    <li>
+    <li {{action 'editDetails' schedule on='doubleClick'}}>
       {{link-to schedule.name "event.schedule.show" schedule.event schedule}}
     </li>
   {{/each}}

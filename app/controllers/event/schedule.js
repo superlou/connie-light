@@ -19,6 +19,23 @@ export default Ember.Controller.extend({
   newSessionStart: null,
   newSessionDuration: "30",
 
+  detailedModel: null,
+
+  isEditingDetails: Ember.computed('detailedModel', function() {
+    if (this.get('detailedModel')) {
+      return true;
+    } else {
+      return false;
+    }
+  }),
+
+  detailedModelDetails: Ember.computed('detailedModel', function() {
+    var modelType = this.get('detailedModel.constructor.modelName');
+    if (modelType == "schedule") {
+      return "schedule-details";
+    }
+  }),
+
   actions: {
     newSchedule: function() {
       this.set('newSchedule', true);
@@ -80,6 +97,14 @@ export default Ember.Controller.extend({
 
       this.set('newSession', false);
       this.set('newSessionPlace', null);
+    },
+
+    editDetails: function(model) {
+      if (this.get('detailedModel') === model) {
+        this.set('detailedModel', null);
+      } else {
+        this.set('detailedModel', model);
+      }
     }
   }
 });
