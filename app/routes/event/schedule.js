@@ -100,9 +100,13 @@ export default Ember.Route.extend({
     },
 
     updateModel: function(type, model) {
-      if (type === "schedule") {
-        model.save();
-      }
+      model.save();
+    },
+
+    select: function(model) {
+      console.log(model);
+      var schedule = this.controllerFor('event.schedule');
+      schedule.set('detailedModel', model.get('reservation'));
     }
   },
 });

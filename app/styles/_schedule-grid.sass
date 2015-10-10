@@ -45,11 +45,15 @@ $grid-color: #DADADA
           box-sizing: border-box
           height: 50px
           overflow: hidden
-          background: #ECF3FF
-          border: 1px solid #4285F4
+          background: white
+          border: 1px solid #bbb
           padding: 8px
           font-size: 12px
           cursor: pointer
+
+          &.is-selected
+            background: #ECF3FF
+            border: 1px solid #4285F4
 
           // &:hover
           //   background: darken($background, 20)
@@ -60,20 +64,6 @@ $grid-color: #DADADA
             color: white
 
           // @include transition(background 0.1s linear)
-
-        &:nth-child(odd)
-          .reservation-block
-            background: #ECF3FF
-
-            // &:hover
-            //   background: darken($background, 20)
-
-            &.is-dirty
-              border-left: 2px solid darken($background, 80)
-              background: darken($background, 50)
-              color: white
-
-            // @include transition(background 0.1s linear)
 
         .grid
           height: 100%

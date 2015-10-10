@@ -31,12 +31,16 @@ export default Ember.Component.extend({
   }.on('didInsertElement'),
 
   actions: {
-    selectEvent: function(startTime) {
-      this.sendAction('selectEvent', startTime, this.get('reservable'));
+    addEvent: function(startTime) {
+      this.sendAction('addEvent', startTime, this.get('reservable'));
     },
 
     resizeReservation: function(session, hours) {
       this.sendAction('resizeReservation', session, hours);
+    },
+
+    select: function(reservation) {
+      this.sendAction('select', reservation);
     }
   }
 });

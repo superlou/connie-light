@@ -3,7 +3,11 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   attributeBindings: ['style'],
   classNames: ['reservation-block'],
-  classNameBindings: ['isDirty'],
+  classNameBindings: ['isDirty', 'isSelected'],
+
+  click: function() {
+    this.sendAction('select', this);
+  },
 
   // isDirty: function() {
   //   return (this.get('reservation.isDirty') || this.get('reservation.event.isDirty'));

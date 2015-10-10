@@ -23,6 +23,6 @@ export default Ember.Component.extend({
   }.property('hour', 'offset'),
 
   click: function() {
-    this.sendAction('selectEvent', this.get('startTime'));
+    this.sendAction('addEvent', this.get('startTime'));
   }
 });

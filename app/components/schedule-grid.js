@@ -3,6 +3,8 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   classNames: ['schedule-grid'],
 
+  selected: null,
+
   hours: function() {
     var start = this.get('start').reset('minutes');
     var finish = this.get('finish');
@@ -33,8 +35,8 @@ export default Ember.Component.extend({
       this.sendAction('moveReservation', reservation, reservable, schedule);
     },
 
-    selectEvent: function(startTime, reservable) {
-      this.sendAction('selectEvent', startTime, reservable);
+    addEvent: function(startTime, reservable) {
+      this.sendAction('addEvent', startTime, reservable);
     },
 
     newPlace: function() {
@@ -43,6 +45,18 @@ export default Ember.Component.extend({
 
     resizeReservation: function(session, hours) {
       this.sendAction('resizeReservation', session, hours);
+    },
+
+    select: function(session) {
+      if (this.get('selected')) {
+        this.set('selected.isSelected', false);
+        this.set('selected', null);
+      }
+
+      session.set('isSelected', true);
+      this.set('selected', session);
+
+      this.sendAction('select', session);
     }
   }
 });

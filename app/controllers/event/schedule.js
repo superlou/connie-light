@@ -31,8 +31,11 @@ export default Ember.Controller.extend({
 
   detailedModelDetails: Ember.computed('detailedModel', function() {
     var modelType = this.get('detailedModel.constructor.modelName');
+    console.log(this.get('detailedModel.model'));
     if (modelType == "schedule") {
       return "schedule-details";
+    } else if (modelType == "session") {
+      return "session-details";
     }
   }),
 

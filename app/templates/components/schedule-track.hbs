@@ -1,14 +1,14 @@
 {{#each hours as |hour|}}
   {{grid-block hourWidth=hourWidth type='major' hour=hour
-    selectEvent='selectEvent'
+    addEvent='addEvent'
     }}
   {{grid-block hourWidth=hourWidth type='minor' hour=hour offset=30
-    selectEvent='selectEvent'
+    addEvent='addEvent'
     }}
 {{/each}}
 
 
 {{#each reservations as |reservation|}}
   {{reservation-block reservation=reservation hourWidth=hourWidth
-    trackStart=start resizeReservation='resizeReservation'}}
+    trackStart=start resizeReservation='resizeReservation' select='select'}}
 {{/each}}
