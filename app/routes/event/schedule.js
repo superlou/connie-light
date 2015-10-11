@@ -104,9 +104,12 @@ export default Ember.Route.extend({
     },
 
     select: function(model) {
-      console.log(model);
       var schedule = this.controllerFor('event.schedule');
-      schedule.set('detailedModel', model.get('reservation'));
+      schedule.set('detailedModel', model);
+    },
+
+    editDetails: function() {
+      this.controllerFor('event.schedule').toggleProperty('isEditingDetails')
     }
   },
 });

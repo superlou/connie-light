@@ -41,6 +41,10 @@ export default Ember.Component.extend({
 
     select: function(reservation) {
       this.sendAction('select', reservation);
+    },
+
+    editDetails: function() {
+      this.sendAction('editDetails');
     }
   }
 });

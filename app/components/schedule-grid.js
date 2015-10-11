@@ -56,7 +56,12 @@ export default Ember.Component.extend({
       session.set('isSelected', true);
       this.set('selected', session);
 
-      this.sendAction('select', session);
+      // Have been passing component
+      this.sendAction('select', session.get('reservation'));
+    },
+
+    editDetails: function() {
+      this.sendAction('editDetails');
     }
   }
 });

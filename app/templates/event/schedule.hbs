@@ -12,7 +12,7 @@
 <div id='schedule-tabs'>
   <ul>
   {{#each model as |schedule|}}
-    <li {{action 'editDetails' schedule on='doubleClick'}}>
+    <li {{action 'editScheduleDetails' schedule on='doubleClick'}}>
       {{link-to schedule.name "event.schedule.show" schedule.event schedule}}
     </li>
   {{/each}}

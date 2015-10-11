@@ -20,14 +20,15 @@ export default Ember.Controller.extend({
   newSessionDuration: "30",
 
   detailedModel: null,
+  isEditingDetails: false,
 
-  isEditingDetails: Ember.computed('detailedModel', function() {
-    if (this.get('detailedModel')) {
-      return true;
-    } else {
-      return false;
-    }
-  }),
+  // isEditingDetails: Ember.computed('detailedModel', function() {
+  //   if (this.get('detailedModel')) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }),
 
   detailedModelDetails: Ember.computed('detailedModel', function() {
     var modelType = this.get('detailedModel.constructor.modelName');
@@ -102,11 +103,13 @@ export default Ember.Controller.extend({
       this.set('newSessionPlace', null);
     },
 
-    editDetails: function(model) {
+    editScheduleDetails: function(model) {
       if (this.get('detailedModel') === model) {
         this.set('detailedModel', null);
+        this.set('isEditingDetails', false);
       } else {
         this.set('detailedModel', model);
+        this.set('isEditingDetails', true);
       }
     }
   }

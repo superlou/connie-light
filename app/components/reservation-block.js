@@ -9,6 +9,10 @@ export default Ember.Component.extend({
     this.sendAction('select', this);
   },
 
+  doubleClick: function() {
+    this.sendAction('editDetails');
+  },
+
   // isDirty: function() {
   //   return (this.get('reservation.isDirty') || this.get('reservation.event.isDirty'));
   // }.property('reservation.isDirty', 'reservation.event.isDirty'),
