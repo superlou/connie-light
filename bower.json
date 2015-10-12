@@ -20,6 +20,7 @@
     "moment-timezone": ">= 0.1.0",
     "bourbon": "4.2.3",
     "jquery-ui": "1.11.4",
-    "eonasdan-bootstrap-datetimepicker": "~4.14.30"
+    "eonasdan-bootstrap-datetimepicker": "~4.14.30",
+    "dom-ruler": "0.1.13"
   }
 }

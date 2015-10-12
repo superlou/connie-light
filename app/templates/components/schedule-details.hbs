@@ -1,5 +1,12 @@
-<h1>Editing schedule</h1>
-{{input value=model.name}}
-<p>{{model.start}}</p>
-<p>{{model.finish}}</p>
+<h1>{{fa-icon 'pencil'}} schedule details</h1>
+
+<div class='label'>Name</div>
+<div class='input'>{{input value=model.name autoresize=true}}</div>
+
+<div class='label'>Start</div>
+<div class='input'>{{model.start}}</div>
+
+<div class='label'>Finish</div>
+<div class='input'>{{model.finish}}</div>
+
 <button {{action 'save'}}>Save</button>
