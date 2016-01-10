@@ -5,6 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'connie-light',
     environment: environment,
     contentSecurityPolicy: {
+      'font-src': "'self' data:",
       'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com",
       'style-src': "'self' 'unsafe-inline'"
     },
