@@ -59,8 +59,8 @@ export default Ember.Route.extend({
         name: data.name,
         description: "",
         place: data.place,
-        start: data.start,
-        finish: data.finish,
+        start: data.start.toDate(),
+        finish: data.finish.toDate(),
         event: event
       });
 
@@ -78,8 +78,8 @@ export default Ember.Route.extend({
       oldPlace.get('sessions').removeObject(session);
 
       session.set('place', newPlace);
-      session.set('start', times[0]);
-      session.set('finish', times[1]);
+      session.set('start', times[0].toDate());
+      session.set('finish', times[1].toDate());
 
       newPlace.get('sessions').addObject(session);
 
@@ -90,11 +90,11 @@ export default Ember.Route.extend({
     },
 
     resizeReservation: function(session, newHours) {
-      console.dir(session);
       var finish = moment(session.get('start')).add(newHours, 'hours');
       var roundedMinutes = 5 * Math.round(finish.minute() / 5);
       finish.minute(roundedMinutes);
       finish.second(0);
+
       session.set('finish', finish.toDate());
       session.save();
     },

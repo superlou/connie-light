@@ -3,18 +3,20 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   classNames: ['schedule-grid'],
 
+  placesSorting: ['order'],
+  placesSorted: Ember.computed.sort('places', 'placesSorting'),
+
   selected: null,
 
   hours: function() {
-    var start = this.get('start').reset('minutes');
-    var finish = this.get('finish');
-
-    var current = new Date(start.getTime());
+    var start = moment(this.get('start')).minutes(0);
+    var finish = moment(this.get('finish'));
+    var current = moment(start);
     var hours = [];
 
     while (current.isBefore(finish)) {
-      hours.push(new Date(current.getTime()));
-      current.advance('hour');
+      hours.push(moment(current));
+      current.add(1, 'hour');
     }
 
     return hours;
@@ -62,6 +64,14 @@ export default Ember.Component.extend({
 
     editDetails: function() {
       this.sendAction('editDetails');
+    },
+
+    reorderPlaces: function(places, draggedPlace) {
+      places.forEach((place, index) => {
+        console.log(place);
+        place.set('order', index);
+        place.save();
+      });
     }
   }
 });

@@ -81,7 +81,7 @@ export default Ember.Controller.extend({
     createNewSession: function() {
       var start = this.get('newSessionStart');
       var duration = this.get('newSessionDuration');
-      var finish = moment(start).add(duration, 'minutes').toDate();
+      var finish = moment(start).add(duration, 'minutes');
 
       this.send('createSession', {
         name: this.get('newSessionName'),

@@ -17,12 +17,17 @@ export default Ember.Component.extend({
           var startOffset = $block.position().left / hourWidth;
           var endOffset = startOffset + parseInt($block.css('width')) / hourWidth;
 
-          var blockStart = new Date(_this.get('start').getTime());
-          var blockEnd = new Date(_this.get('start').getTime());
+          // var blockStart = new Date(_this.get('start').getTime());
+          // var blockEnd = new Date(_this.get('start').getTime());
+
+          var blockStart = moment(_this.get('start'));
+          var blockEnd = moment(_this.get('start'));
 
           var schedule = [
-            blockStart.addSeconds(startOffset * 3600),
-            blockEnd.addSeconds(endOffset * 3600)
+            // blockStart.addSeconds(startOffset * 3600),
+            // blockEnd.addSeconds(endOffset * 3600)
+            blockStart.add(startOffset * 3600, 'seconds'),
+            blockEnd.add(endOffset * 3600, 'seconds')
           ]
           _this.sendAction('moveReservation', reservation, reservable, schedule);
         // });

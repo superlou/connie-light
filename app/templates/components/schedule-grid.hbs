@@ -1,10 +1,15 @@
-<div class="reservables">
+<div class="fixed-pane">
   <div class='header'></div>
-  {{#each places as |place|}}
-    <div class='reservable'>{{place.name}}</div>
-  {{/each}}
+  {{#sortable-group class='reservables' tagName="ol" onChange="reorderPlaces" as |group|}}
+    {{#each placesSorted as |place|}}
+      {{#sortable-item tagName="li" model=place group=group class='reservable'}}
+        {{place.name}}
+      {{/sortable-item}}
+    {{/each}}
+  {{/sortable-group}}
 
-  <div class='reservable'>
+
+  <div class='add-reservable'>
     <a href='#' {{action 'newPlace'}}>{{fa-icon "plus"}} New</a>
   </div>
 </div>
@@ -17,7 +22,7 @@
         <div class='hour' style={{hourWidthStyle}}>{{structure-hour hour}}</div>
       {{/each}}
     </div>
-    {{#each places as |place|}}
+    {{#each placesSorted as |place|}}
       {{schedule-track reservable=place reservations=place.sessions
         hours=hours hourWidth=hourWidth start=start
         moveReservation='moveReservation' addEvent='addEvent'

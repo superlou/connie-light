@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  hour: null,
   classNames: ['grid'],
   classNameBindings: ['gridType'],
   attributeBindings: ['style'],
@@ -19,7 +20,7 @@ export default Ember.Component.extend({
   }.property('hourWidth'),
 
   startTime: function() {
-    return new Date(this.get('hour').getTime()).addMinutes(this.get('offset'));
+    return this.get('hour').add(this.get('offset'), 'minutes');
   }.property('hour', 'offset'),
 
   click: function() {
