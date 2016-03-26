@@ -3,7 +3,7 @@
   {{#sortable-group class='reservables' tagName="ol" onChange="reorderPlaces" as |group|}}
     {{#each placesSorted as |place|}}
       {{#sortable-item tagName="li" model=place group=group class='reservable'}}
-        {{place.name}}
+        {{schedule-place place=place select='select' editDetails='editDetails'}}
       {{/sortable-item}}
     {{/each}}
   {{/sortable-group}}
