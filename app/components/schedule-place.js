@@ -1,10 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  isSelected: false,
-
   click: function() {
-    this.sendAction('select', this);
+    this.sendAction('select', this.get('place'));
   },
 
   doubleClick: function() {

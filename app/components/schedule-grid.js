@@ -49,21 +49,20 @@ export default Ember.Component.extend({
       this.sendAction('resizeReservation', session, hours);
     },
 
-    select: function(component) {
-      if (this.get('selected')) {
-        this.set('selected.isSelected', false);
-        this.set('selected', null);
-      }
-
-      component.set('isSelected', true);
-      this.set('selected', component);
-
-      // Have been passing component, really gross
-      var model = component.get('reservation');
-      if (!model) {
-        model = component.get('place')
-      }
-
+    select: function(model) {
+      // if (this.get('selected')) {
+      //   this.set('selected.isSelected', false);
+      //   this.set('selected', null);
+      // }
+      //
+      // component.set('isSelected', true);
+      // this.set('selected', component);
+      //
+      // // Have been passing component, really gross
+      // var model = component.get('reservation');
+      // if (!model) {
+      //   model = component.get('place')
+      // }
       this.sendAction('select', model);
     },
 

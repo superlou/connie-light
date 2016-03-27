@@ -19,8 +19,15 @@ export default Ember.Controller.extend({
   newSessionStart: null,
   newSessionDuration: "30",
 
-  detailedModel: null,
-  isEditingDetails: false,
+  selected: [],
+
+  isEditingDetails: Ember.computed('selected.@each', function() {
+    return (this.get('selected').length > 0);
+  }),
+
+  detailedModel: Ember.computed('selected.@each', function() {
+    return this.get('selected.lastObject');
+  }),
 
   detailedModelDetails: Ember.computed('detailedModel', function() {
     var modelType = this.get('detailedModel.constructor.modelName');
@@ -36,11 +43,11 @@ export default Ember.Controller.extend({
 
   actions: {
     newSchedule: function() {
-      this.set('newSchedule', true);
+      this.set('editSchedule', true);
     },
 
     removeNewSchedule: function() {
-      this.set('newSchedule', false);
+      this.set('editSchedule', false);
     },
 
     createNewSchedule: function() {
@@ -97,13 +104,11 @@ export default Ember.Controller.extend({
       this.set('newSessionPlace', null);
     },
 
-    editScheduleDetails: function(model) {
-      if (this.get('detailedModel') === model) {
-        this.set('detailedModel', null);
-        this.set('isEditingDetails', false);
+    select: function(model) {
+      if (this.get('selected').contains(model)) {
+        this.get('selected').removeObject(model);
       } else {
-        this.set('detailedModel', model);
-        this.set('isEditingDetails', true);
+        this.set('selected', [model]);
       }
     }
   }

@@ -3,7 +3,9 @@
   {{#sortable-group class='reservables' tagName="ol" onChange="reorderPlaces" as |group|}}
     {{#each placesSorted as |place|}}
       {{#sortable-item tagName="li" model=place group=group class='reservable'}}
-        {{schedule-place place=place select='select' editDetails='editDetails'}}
+        {{schedule-place place=place
+                         select='select'
+                         editDetails='editDetails'}}
       {{/sortable-item}}
     {{/each}}
   {{/sortable-group}}
@@ -23,11 +25,16 @@
       {{/each}}
     </div>
     {{#each placesSorted as |place|}}
-      {{schedule-track reservable=place reservations=place.sessions
-        hours=hours hourWidth=hourWidth start=start
-        moveReservation='moveReservation' addEvent='addEvent'
-        resizeReservation='resizeReservation' select='select'
-        editDetails='editDetails'}}
+      {{schedule-track reservable=place
+                       reservations=place.sessions
+                       hours=hours hourWidth=hourWidth
+                       start=start
+                       selected=selected
+                       moveReservation='moveReservation'
+                       addEvent='addEvent'
+                       resizeReservation='resizeReservation'
+                       select='select'
+                       editDetails='editDetails'}}
     {{/each}}
   </div>
 </div>

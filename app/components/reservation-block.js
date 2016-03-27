@@ -6,11 +6,7 @@ export default Ember.Component.extend({
   classNameBindings: ['isDirty', 'isSelected'],
 
   click: function() {
-    this.sendAction('select', this);
-  },
-
-  doubleClick: function() {
-    this.sendAction('editDetails');
+    this.sendAction('select', this.get('reservation'));
   },
 
   // isDirty: function() {

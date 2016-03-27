@@ -8,8 +8,12 @@
 {{/each}}
 
 
-{{#each reservations as |reservation|}}
-  {{reservation-block reservation=reservation hourWidth=hourWidth
-    trackStart=start resizeReservation='resizeReservation' select='select'
-    editDetails='editDetails'}}
+{{#each reservationsWrapper as |wrapper|}}
+  {{reservation-block reservation=wrapper.model
+                      isSelected=wrapper.isSelected
+                      hourWidth=hourWidth
+                      trackStart=start
+                      resizeReservation='resizeReservation'
+                      select='select'
+                      editDetails='editDetails'}}
 {{/each}}

@@ -3,6 +3,17 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   classNames: ['track'],
 
+  reservationsWrapper: Ember.computed('reservations.@each', 'selected.@each', function() {
+    var selected = this.get('selected');
+
+    return this.get('reservations').map(function(reservation) {
+      return {
+        model: reservation,
+        isSelected: selected.contains(reservation)
+      }
+    });
+  }),
+
   setupUi: function() {
     var _this = this;
     this.$().droppable({
