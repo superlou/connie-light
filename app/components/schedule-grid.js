@@ -49,17 +49,22 @@ export default Ember.Component.extend({
       this.sendAction('resizeReservation', session, hours);
     },
 
-    select: function(session) {
+    select: function(component) {
       if (this.get('selected')) {
         this.set('selected.isSelected', false);
         this.set('selected', null);
       }
 
-      session.set('isSelected', true);
-      this.set('selected', session);
+      component.set('isSelected', true);
+      this.set('selected', component);
 
-      // Have been passing component
-      this.sendAction('select', session.get('reservation'));
+      // Have been passing component, really gross
+      var model = component.get('reservation');
+      if (!model) {
+        model = component.get('place')
+      }
+
+      this.sendAction('select', model);
     },
 
     editDetails: function() {
@@ -68,7 +73,6 @@ export default Ember.Component.extend({
 
     reorderPlaces: function(places, draggedPlace) {
       places.forEach((place, index) => {
-        console.log(place);
         place.set('order', index);
         place.save();
       });
