@@ -17,7 +17,7 @@
     </li>
   {{/each}}
   <li>
-    <a href="#" class="subtle" {{action "newSchedule"}}>{{fa-icon "plus"}}</a>
+    {{#link-to 'event.schedule.configure' event class='subtle'}}{{fa-icon "cog"}}{{/link-to}}
   </li>
   </ul>
 </div>

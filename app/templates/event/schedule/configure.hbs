@@ -1,0 +1,17 @@
+<div class="schedule-page">
+  <h1>Schedules</h1>
+
+  <table>
+  {{#each model as |schedule|}}
+    <tr>
+      <td>
+        {{link-to schedule.name 'event.schedule.show' schedule.event schedule}}
+      </td>
+      <td>{{schedule.start}}</td>
+      <td>{{schedule.finish}}</td>
+    </tr>
+  {{/each}}
+  </table>
+
+  <button {{action 'newSchedule'}}>New schedule</button>
+</div>

@@ -18,7 +18,8 @@ export default Ember.Route.extend({
       });
 
       schedule.save();
-      event.get('schedules').addObject(schedule).save();
+      event.get('schedules').addObject(schedule);
+      event.save();
     },
 
     newPlace: function() {

@@ -9,6 +9,7 @@ Router.map(function() {
   this.route('event', {path: '/event/:event_id'}, function() {
     this.route('schedule', function() {
       this.route('show', {path: '/:schedule_id'});
+      this.route('configure');
     });
   });
 });
