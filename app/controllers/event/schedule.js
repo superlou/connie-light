@@ -97,6 +97,7 @@ export default Ember.Controller.extend({
         name: this.get('newSessionName'),
         start: start,
         finish: finish,
+        duration: duration,
         place: this.get('newSessionPlace')
       });
 

@@ -5,6 +5,7 @@ export default DS.Model.extend({
   description: DS.attr('string'),
   start: DS.attr('date'),
   finish: DS.attr('date'),
+  duration: DS.attr(),
   place: DS.belongsTo('place'),
   event: DS.belongsTo('event')
 });
