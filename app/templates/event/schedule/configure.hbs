@@ -1,17 +1,18 @@
-<div class="schedule-page">
-  <h1>Schedules</h1>
 
-  <table>
-  {{#each model as |schedule|}}
-    <tr>
-      <td>
-        {{link-to schedule.name 'event.schedule.show' schedule.event schedule}}
-      </td>
-      <td>{{schedule.start}}</td>
-      <td>{{schedule.finish}}</td>
-    </tr>
-  {{/each}}
-  </table>
-
-  <button {{action 'newSchedule'}}>New schedule</button>
+<div class="inset-title">
+<h1>Schedules</h1>
+<button {{action 'newSchedule'}}>{{fa-icon "plus"}}</button>
 </div>
+
+<table>
+{{#each model as |schedule|}}
+  <tr>
+    <td>
+      {{link-to schedule.name 'event.schedule.show' schedule.event schedule}}
+    </td>
+    <td>{{schedule.start}}</td>
+    <td>{{schedule.finish}}</td>
+    <td><span {{action 'deleteSchedule' schedule}}>{{fa-icon "trash"}}</span></td>
+  </tr>
+{{/each}}
+</table>

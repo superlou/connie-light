@@ -45,9 +45,6 @@ body
       list-style-type: none
       padding-right: 10px
 
-.schedule-page
-  padding: 20px
-
 #schedule
   position: fixed
   top: 64px
@@ -57,6 +54,32 @@ body
 
   &.is-editing-details
     right: 300px
+
+.inset-title
+
+  h1
+    margin: 0px
+    padding: 8px 20px
+    display: inline-block
+    font-weight: normal
+
+  button
+    float: right
+    padding: 8px 20px
+    margin: 8px
+
+table
+  border-collapse: collapse
+  width: 100%
+
+  tr
+    td
+      border-bottom: 1px solid #e5e5e5
+      padding: 20px
+
+  tr:first-child
+    td
+      border-top: 1px solid #e5e5e5
 
 #detail-pane
   position: fixed

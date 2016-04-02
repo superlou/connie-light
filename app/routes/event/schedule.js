@@ -22,6 +22,13 @@ export default Ember.Route.extend({
       event.save();
     },
 
+    deleteSchedule: function(schedule) {
+      var event = schedule.get('event');
+      schedule.deleteRecord();
+      schedule.save();
+      event.save();
+    },
+
     newPlace: function() {
       this.controllerFor('event.schedule').set('newPlace', true);
     },
