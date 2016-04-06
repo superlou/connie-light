@@ -1,6 +1,6 @@
 
 <div class="inset-title">
-<h1>Schedules</h1>
+<h1>Configure schedules</h1>
 <button {{action 'newSchedule'}}>{{fa-icon "plus"}}</button>
 </div>
 
@@ -10,8 +10,8 @@
     <td>
       {{link-to schedule.name 'event.schedule.show' schedule.event schedule}}
     </td>
-    <td>{{schedule.start}}</td>
-    <td>{{schedule.finish}}</td>
+    <td>{{moment-format schedule.start "lll"}}</td>
+    <td>{{moment-format schedule.finish "lll"}}</td>
     <td><span {{action 'deleteSchedule' schedule}}>{{fa-icon "trash"}}</span></td>
   </tr>
 {{/each}}

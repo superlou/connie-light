@@ -1,14 +1,13 @@
 .ember-modal-dialog
+  padding: 16px
   border-radius: 0px
-  box-shadow: none
-  border: 1px solid #aaa
-  border-bottom: 2px solid #bbb
-  padding: 14px
+  border: 1px solid #ccc
+  box-shadow:  0 2px 4px rgba(0,0,0,.2)
 
   h1
     font-size: 12px
-    text-transform: uppercase
-    color: #aaa
+    // text-transform: uppercase
+    color: black
     margin-top: 0px
 
   .input
@@ -20,9 +19,17 @@
       font-size: 14px
       border: 1px solid #aaa
 
-  .name
-    font-size: 12px
-    padding: 4px 0px 0px 0px
+  label
+    display: block
+    color: #9b9b9b
+    font-size: 11px
+    font-weight: bold
+    padding: 4px 0px 4px 0px
+
+  .value
+    color: black
+    font-size: 14px
+    padding: 4px 0px
 
 .ember-modal-overlay.translucent
-  background: rgba(0, 0, 0, 0.1)
+  background: none

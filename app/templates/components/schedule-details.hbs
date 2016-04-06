@@ -4,9 +4,9 @@
 <div class='input'>{{input value=model.name autoresize=true}}</div>
 
 <div class='label'>Start</div>
-<div class='input'>{{model.start}}</div>
+<div class='input'>{{moment-format model.start "lll"}}</div>
 
 <div class='label'>Finish</div>
-<div class='input'>{{model.finish}}</div>
+<div class='input'>{{moment-format model.finish "lll"}}</div>
 
 <button {{action 'save'}}>Save</button>

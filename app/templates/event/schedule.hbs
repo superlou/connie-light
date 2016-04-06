@@ -25,34 +25,34 @@
 {{#if editSchedule}}
   {{#modal-dialog close="removeNewSchedule" targetAttachment="center" translucentOverlay=true}}
     <h1>Create new schedule</h1>
-    <div class="name">Name</div>
     <div class="input">{{input value=newScheduleName}}</div>
-    <div class="name">Date</div>
+    <label>Date</label>
     <div class="input">{{pikaday-input value=newScheduleDate}}</div>
-    <div class="name">Start</div>
+    <label>Start</label>
     <div class="input">{{input name=newScheduleStart value=newScheduleStart}}</div>
-    <div class="name">Finish</div>
+    <label>Finish</label>
     <div class="input">{{input name=newScheduleFinish value=newScheduleFinish}}</div>
-    <button {{action "createNewSchedule"}}>Save</button>
+    <button {{action "createNewSchedule"}} class="primary">Create schedule</button>
   {{/modal-dialog}}
 {{/if}}
 
 {{#if newPlace}}
   {{#modal-dialog close="removeNewPlace" targetAttachment="center" translucentOverlay=true}}
     <h1>Create new place</h1>
-    <div class="name">Name</div>
     <div class="input">{{input value=newPlaceName}}</div>
-    <button {{action "createNewPlace"}}>Save</button>
+    <button {{action "createNewPlace"}} class="primary">Create place</button>
   {{/modal-dialog}}
 {{/if}}
 
 {{#if newSession}}
   {{#modal-dialog close="removeNewSession" targetAttachment="center" translucentOverlay=true}}
     <h1>Create new session</h1>
-    <div class="name">Name</div>
+    <!-- <div class="name">Name</div> -->
     <div class="input">{{input value=newSessionName}}</div>
-    <div class="name">Duration (minutes)</div>
+    <label>Start</label>
+    <div class="value">{{moment-format newSessionStart "lll"}}</div>
+    <label>Duration (minutes)</label>
     <div class="input">{{input value=newSessionDuration}}</div>
-    <button {{action "createNewSession"}}>Save</button>
+    <button {{action "createNewSession"}} class="primary">Save session</button>
   {{/modal-dialog}}
 {{/if}}
