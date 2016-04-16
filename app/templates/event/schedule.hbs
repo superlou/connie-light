@@ -24,15 +24,30 @@
 
 {{#if editSchedule}}
   {{#modal-dialog close="removeNewSchedule" targetAttachment="center" translucentOverlay=true}}
-    <h1>Create new schedule</h1>
-    <div class="input">{{input value=newScheduleName}}</div>
-    <label>Date</label>
-    <div class="input">{{pikaday-input value=newScheduleDate}}</div>
-    <label>Start</label>
-    <div class="input">{{input name=newScheduleStart value=newScheduleStart}}</div>
-    <label>Finish</label>
-    <div class="input">{{input name=newScheduleFinish value=newScheduleFinish}}</div>
-    <button {{action "createNewSchedule"}} class="primary">Create schedule</button>
+    <div class="block form-group">
+      {{input value=newScheduleName}}
+    </div>
+
+      <div class="block form-group">
+        <label>Date</label>
+        {{pikaday-input value=newScheduleDate}}
+      </div>
+
+    <div class="block">
+      <div class="inline form-group">
+        <label>Start</label>
+        {{input name=newScheduleStart value=newScheduleStart width="20px"}}
+      </div>
+
+      <div class="inline form-group">
+        <label>Finish</label>
+        {{input name=newScheduleFinish value=newScheduleFinish}}
+      </div>
+    </div>
+
+    <div class="block form-group">
+      <button {{action "createNewSchedule"}} class="action">Create schedule</button>
+    </div>
   {{/modal-dialog}}
 {{/if}}
 
