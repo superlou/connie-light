@@ -1,1 +1,10 @@
-{{input value=textValue}}
+{{input value=(readonly textValue)
+        focus-out='removeSuggestion'
+        escape-press='removeSuggestion'
+        key-up='change'
+        }}
+{{#if suggestion}}
+  <div class='suggestion' {{action 'selectSuggestion'}}>
+    {{moment-format suggestion}}
+  </div>
+{{/if}}

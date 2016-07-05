@@ -10,8 +10,8 @@
     <td>
       {{link-to schedule.name 'event.schedule.show' schedule.event schedule}}
     </td>
-    <td>{{moment-format schedule.start "lll"}}</td>
-    <td>{{moment-format schedule.finish "lll"}}</td>
+    <td>{{datetime-input value=schedule.start}}</td>
+    <td>{{datetime-input value=schedule.finish}}</td>
     <td><span {{action 'deleteSchedule' schedule}}>{{fa-icon "trash"}}</span></td>
   </tr>
 {{/each}}

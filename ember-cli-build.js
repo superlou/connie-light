@@ -23,6 +23,7 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
   app.import('vendor/google/add-ons1.css');
+  app.import('bower_components/chrono/chrono.js');
 
   return app.toTree();
 };

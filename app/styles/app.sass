@@ -47,6 +47,23 @@ input.editable-name-input
       list-style-type: none
       padding-right: 10px
 
+.datetime-input
+  width: 180px
+
+  input
+    border: 1px solid transparent
+    width: 180px
+
+    &:hover
+      border-color: #e5e5e5
+
+  .suggestion
+    background: white
+    position: absolute
+    padding: 2px 4px
+    border: 1px solid #e5e5e5
+    width: 170px
+
 #schedule
   position: fixed
   top: 65px
@@ -112,8 +129,6 @@ table
       border-radius: 2px
       padding: 2px 4px
       margin-left: -4px
-
-      font-size: 18px
 
       &.not-named
         font-style: italic
