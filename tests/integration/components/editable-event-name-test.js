@@ -6,21 +6,13 @@ moduleForComponent('editable-event-name', 'Integration | Component | editable ev
 });
 
 test('it renders', function(assert) {
-  assert.expect(2);
+  assert.expect(1);
 
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{editable-event-name}}`);
+  this.set('name', 'Cool Event');
+  this.render(hbs`{{editable-event-name value=name}}`);
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#editable-event-name}}
-      template block text
-    {{/editable-event-name}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$('input').val(), 'Cool Event');
 });
