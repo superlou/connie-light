@@ -1,7 +1,8 @@
+/* global moment */
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model: function(param) {
+  model: function(/*param*/) {
     var event = this.modelFor('event');
     return event.get('schedules');
   },
@@ -61,7 +62,6 @@ export default Ember.Route.extend({
     createSession: function(data) {
       var place = data.place;
       var event = this.controllerFor('event').get('model');
-      var schedule = this.controllerFor('event.schedule.show').get('model');
 
       var session = this.store.createRecord('session', {
         name: data.name,
@@ -113,7 +113,7 @@ export default Ember.Route.extend({
     },
 
     editDetails: function() {
-      this.controllerFor('event.schedule').toggleProperty('isEditingDetails')
+      this.controllerFor('event.schedule').toggleProperty('isEditingDetails');
     }
   },
 });

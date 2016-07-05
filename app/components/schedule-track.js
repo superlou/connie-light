@@ -1,3 +1,4 @@
+/* global moment */
 import Ember from 'ember';
 
 export default Ember.Component.extend({
@@ -10,16 +11,16 @@ export default Ember.Component.extend({
       return {
         model: reservation,
         isSelected: selected.contains(reservation)
-      }
+      };
     });
   }),
 
   setupUi: function() {
     var _this = this;
     this.$().droppable({
-      drop: function(event, ui) {
+      drop: function(event/*, ui*/) {
         // Ember.run.scheduleOnce('afterRender', this, function() {
-          var $block = $(event.toElement);
+          var $block = Ember.$(event.toElement);
           var id = $block.attr('id');
           var reservation = _this._viewRegistry[id].get('reservation');
           var reservable = _this.get('reservable');
@@ -39,7 +40,7 @@ export default Ember.Component.extend({
             // blockEnd.addSeconds(endOffset * 3600)
             blockStart.add(startOffset * 3600, 'seconds'),
             blockEnd.add(endOffset * 3600, 'seconds')
-          ]
+          ];
           _this.sendAction('moveReservation', reservation, reservable, schedule);
         // });
       }

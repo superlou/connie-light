@@ -1,3 +1,4 @@
+/* global moment */
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
@@ -32,11 +33,11 @@ export default Ember.Controller.extend({
   detailedModelDetails: Ember.computed('detailedModel', function() {
     var modelType = this.get('detailedModel.constructor.modelName');
 
-    if (modelType == "schedule") {
+    if (modelType === "schedule") {
       return "schedule-details";
-    } else if (modelType == "session") {
+    } else if (modelType === "session") {
       return "session-details";
-    } else if (modelType == "place") {
+    } else if (modelType === "place") {
       return "place-details";
     }
   }),

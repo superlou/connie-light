@@ -1,3 +1,4 @@
+/* global moment */
 import Ember from 'ember';
 
 export default Ember.Component.extend({
@@ -70,7 +71,7 @@ export default Ember.Component.extend({
       this.sendAction('editDetails');
     },
 
-    reorderPlaces: function(places, draggedPlace) {
+    reorderPlaces: function(places/*, draggedPlace*/) {
       places.forEach((place, index) => {
         place.set('order', index);
         place.save();

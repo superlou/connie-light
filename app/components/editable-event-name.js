@@ -7,14 +7,14 @@ export default Ember.TextField.extend({
   autoresize: true,
 
   notNamed: Ember.computed('value', function() {
-    if (this.get('value') == "Untitled event") {
+    if (this.get('value') === "Untitled event") {
       return true;
     } else {
       return false;
     }
   }),
 
-  focusOut: function(e) {
+  focusOut: function() {
     this.sendAction('update', this.get('value'));
   }
 });
